@@ -15,7 +15,25 @@ function fibs(num){
     console.log(sequence)
 }
 
-fibs(8)
-fibs(20)
-fibs(1)
-fibs(3)
+let array = []
+function fibsRec(num){
+    if (num <= 0){
+        return
+    }
+    else if (num === 1){
+        array[num-1] = 0
+        return 0
+    }
+    else if (num === 2){
+        array[num-1] = 1
+        return 1
+    }
+    else{
+        newNum = fibsRec(num-2) + fibsRec(num-1)
+        array[num-1] = newNum
+        return newNum
+    }
+}
+
+fibsRec(12)
+console.log(array)
